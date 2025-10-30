@@ -9,6 +9,6 @@ Right now, I’m sharpening my skills in cutting-edge AI research as I work thro
 I’m always on the lookout for cool projects and collaborations that push the boundaries of what's possible with automation and AI. If you’re building something innovative or need a fresh perspective on streamlining tech processes, I’d love to team up and make the magic happen.
 
 ## Get In Touch 📫
-Feel free to drop me a line at [kameron.m.green@outlook.com](mailto:kameron.m.green@outlook.com) or give me a call at 402 871 1479. Let's connect, chat, and create something amazing together!
+Feel free to drop me a line at [kameron.m.green@outlook.com](mailto:kameron.m.green@outlook.com). Let's connect, chat, and create something amazing together!
 
 **P.S.** Fun fact: I once built a multi-agent system from scratch that boosted decision accuracy by 30% and cut errors by 80% in just a few months – now that's what I call a win! 😄
