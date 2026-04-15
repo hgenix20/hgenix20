@@ -1,14 +1,75 @@
-# Hey there, I'm Kameron Green! 👋
+# Kameron Green
 
-I'm a hands-on developer with a passion for automation and AI, blending over 8 years of professional experience into crafting innovative, real-world solutions. Whether it's building robust RPA systems, designing seamless API integrations, or experimenting with multi-agent architectures, I love the challenge of turning complex problems into fun, automated workflows.
+Independent researcher working at the intersection of **human capability taxonomy** and **AI cognitive architecture**. I study how intelligence is structured in humans, and how to build AI systems that mirror that structure rather than merely approximate its outputs.
 
-## What I'm Up To 🚀
-Right now, I’m sharpening my skills in cutting-edge AI research as I work through my Masters in Computer Science. When I'm not coding or brainstorming the next big automation project, you'll find me exploring new tech trends and testing out creative solutions to make systems more efficient and secure.
+---
 
-## Let’s Collaborate and Create Awesome Stuff! 🤝
-I’m always on the lookout for cool projects and collaborations that push the boundaries of what's possible with automation and AI. If you’re building something innovative or need a fresh perspective on streamlining tech processes, I’d love to team up and make the magic happen.
+## 🔬 Current Research
 
-## Get In Touch 📫
-Feel free to drop me a line at [kameron.m.green@outlook.com](mailto:kameron.m.green@outlook.com). Let's connect, chat, and create something amazing together!
+I'm developing **HCQM (Human Capability Quotient Map)** — an integrated, hierarchical taxonomy that synthesizes existing capability research from cognitive science, psychology, and intelligence studies into a unified framework spanning eight domains: cognitive, executive, emotional/social, creative, motivational, learning, digital, and systems intelligence.
 
-**P.S.** Fun fact: I once built a multi-agent system from scratch that boosted decision accuracy by 30% and cut errors by 80% in just a few months – now that's what I call a win! 😄
+HCQM is designed for two purposes:
+
+1. **Human development** — multidimensional capability assessment for targeted growth planning
+2. **Synthetic cognitive architecture** — a prescriptive engineering blueprint for AI systems grounded in the full range of human capabilities, not just cognitive ability
+
+The framework began as a tool I built to assess and develop my daughter's capabilities holistically. It became clear the same structure could serve as an architectural blueprint for the next generation of AI systems — ones designed to mirror the structure of human cognition rather than only its surface behavior.
+
+**Long-term direction:** advancing toward more general and capable AI systems through cognitive architectures grounded in human capability research.
+
+📄 **HCQM Project:** [github.com/hgenix20/hcqm](https://github.com/hgenix20/hcqm)
+**Status:** v0.1 working draft published. v1.0 with full literature review in progress. Architecture whitepaper planned as follow-up publication.
+
+---
+
+## 🎓 Education
+
+- **Master of Science in Computer Science**, concentration in Artificial Intelligence — University of Nebraska at Omaha *(in progress)*
+- **PhD in Artificial Intelligence** *(planned, post-Master's)*
+- **Bachelor of Science in Business Administration**, concentration in Economics
+
+---
+
+## 🛠️ Background
+
+10 years of professional experience spanning:
+
+- **Enterprise automation & RPA** — production-grade workflow systems
+- **AI systems engineering** — bridging classical automation with modern LLM-based agent design
+- **Multi-agent architectures** — orchestration, verification, and compounding agent work
+- **API integration & orchestration** — resilient connective tissue between complex systems
+
+---
+
+## 🏆 Recognition
+
+**Microsoft AI Agents Hackathon 2025 — Best JavaScript/TypeScript Agent**
+Winner out of 18,000+ registered developers and 570 project submissions across seven categories. Built **ModelProof: Sentinel AI Chat** — a dual-LLM consistency verification system that cross-checks AI outputs in real time for hallucinations, bias, and intent alignment. Treats AI responses with a sentinel guard pattern, providing users with confidence reports alongside answers.
+
+🔗 [ModelProof repository](https://github.com/hgenix20/modelproof) · [Microsoft category winners showcase](https://techcommunity.microsoft.com/blog/azuredevcommunityblog/ai-agents-hackathon-2025-%E2%80%93-category-winners-showcase/4415088)
+
+---
+
+## 📚 Active Research Interests
+
+- Cognitive architecture for LLM-based agents
+- Capability taxonomies grounded in human intelligence research
+- Long-horizon agent systems and memory architectures
+- Pathways toward more general and capable AI through architectural design
+- The gap between descriptive capability frameworks and prescriptive engineering blueprints
+
+---
+
+## 🤝 Connect
+
+I welcome substantive engagement from researchers and practitioners working on adjacent problems — particularly cognitive architecture, capability frameworks, agent systems, and human-AI alignment.
+
+- 🔗 **HCQM Project:** [github.com/hgenix20/hcqm](https://github.com/hgenix20/hcqm)
+- 🆔 **ORCID:** [0009-0002-8350-3641](https://orcid.org/0009-0002-8350-3641)
+- 💼 **LinkedIn:** [linkedin.com/in/kameronmgreen](https://www.linkedin.com/in/kameronmgreen/)
+- 𝕏 **X:** [@KameronMGreen](https://x.com/KameronMGreen)
+- 📧 **Academic email:** kgreen@unomaha.edu
+
+---
+
+*Building in public. Researching how intelligence actually works — in humans, and in the systems we design to think.*
