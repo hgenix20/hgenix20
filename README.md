@@ -38,7 +38,7 @@ Built as much as a reproducible evaluation environment as an agent: ~765 automat
 ### [HCQM](https://github.com/hgenix20/hcqm)
 An open, 8-domain framework for measuring AI capability and reliability, spanning cognitive, executive, emotional/social, creative, motivational, learning, digital, and systems intelligence.
 
-**v1.0 published**, archived on Zenodo with a resolving DOI: [10.5281/zenodo.20668273](https://doi.org/10.5281/zenodo.20668273), mirrored to Software Heritage. In external review with researchers in cognitive architecture, AI evaluation, and psychometrics, including the Institute for Applied Psychometrics, whose director is named in the paper's acknowledgments. Portfolio research, not peer-reviewed.
+**v1.0 published**, archived on Zenodo with a resolving DOI: [10.5281/zenodo.20668273](https://doi.org/10.5281/zenodo.20668273), mirrored to Software Heritage. In external review with researchers in cognitive architecture, AI evaluation, and psychometrics, including the Institute for Applied Psychometrics, whose director is named in the paper's acknowledgments. Portfolio research.
 
 It started as a tool I built to assess and develop my daughter's capabilities holistically. It became clear the same structure could work as an architectural blueprint for AI systems that mirror how human cognition is organized.
 
