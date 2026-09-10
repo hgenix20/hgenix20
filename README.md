@@ -1,75 +1,94 @@
-# Kameron Green
+# Kameron M. Green
 
-Independent researcher working at the intersection of **human capability taxonomy** and **AI cognitive architecture**. I study how intelligence is structured in humans, and how to build AI systems that mirror that structure rather than merely approximate its outputs.
+AI engineer. I build agentic systems that hold up in production: orchestration, evaluation, observability, and the guardrails that let an agent touch a system of record.
+
+Ten years shipping automation and AI into regulated enterprise operations. Right now I build production multi-agent LLM systems for enterprise sales operations at **Indeed**. Before that, a decade automating regulated insurance operations, where a sloppy data boundary turns into a compliance finding.
+
+Everything below is public, runnable, and measured.
 
 ---
 
-## 🔬 Current Research
+## 🧱 What I build
 
-I'm developing **HCQM (Human Capability Quotient Map)** — an integrated, hierarchical taxonomy that synthesizes existing capability research from cognitive science, psychology, and intelligence studies into a unified framework spanning eight domains: cognitive, executive, emotional/social, creative, motivational, learning, digital, and systems intelligence.
+### [Enterprise Agent Platform](https://github.com/hgenix20/enterprise-agent-platform)
+A reference implementation of a production agentic stack, with the architectural decisions written down as ADRs.
 
-HCQM is designed for two purposes:
+- **Model gateway** with provider abstraction, tiered routing by task class, and ordered fallback chains. Measured 100% recovery at **+0.02 ms** added latency with the primary provider failing every call.
+- **Tool registry** with MCP-style specs enforcing per-agent authorization. An agent can only call what its grant allows, checked before the tool resolves.
+- **Human approval gates** that park a run and resume it durably, exactly-once across processes via atomic compare-and-set on Postgres.
+- **Agent memory on pgvector**, per-agent scoping enforced in the query. 1.05 ms ranked search at k=5.
+- LangGraph orchestration, OpenTelemetry spans on every model call and tool execution, a 6-case eval suite gating CI, 45 tests, 6 ADRs.
+- **Kubernetes deploy verified** on k3d: 100/100 runs at 5.4 ms mean end to end with durable persistence, every row confirmed in the cluster database.
 
-1. **Human development** — multidimensional capability assessment for targeted growth planning
-2. **Synthetic cognitive architecture** — a prescriptive engineering blueprint for AI systems grounded in the full range of human capabilities, not just cognitive ability
+Benchmarks and method notes are published in [`docs/benchmarks.md`](https://github.com/hgenix20/enterprise-agent-platform/blob/main/docs/benchmarks.md).
 
-The framework began as a tool I built to assess and develop my daughter's capabilities holistically. It became clear the same structure could serve as an architectural blueprint for the next generation of AI systems — ones designed to mirror the structure of human cognition rather than only its surface behavior.
+### [SignalNodus](https://github.com/hgenix20/signalnodus) · [signalnodus.ai](https://signalnodus.ai)
+A live SEC-filing intelligence API with a **public evaluation suite**: 88 published test cases with accuracy reporting, a usage audit log, and per-request receipts. You shouldn't have to trust a system you can't inspect. Sole builder and operator.
 
-**Long-term direction:** advancing toward more general and capable AI systems through cognitive architectures grounded in human capability research.
+### [ModelProof](https://github.com/hgenix20/modelproof)
+A dual-LLM output verifier. A verifier model adjudicates a primary model's outputs for hallucination, bias, and intent alignment before they reach the user, and the user gets a confidence report alongside the answer.
 
-📄 **HCQM Project:** [github.com/hgenix20/hcqm](https://github.com/hgenix20/hcqm)
-**Status:** v0.1 working draft published. v1.0 with full literature review in progress. Architecture whitepaper planned as follow-up publication.
+**Microsoft AI Agents Hackathon 2025, category winner (Best JavaScript/TypeScript Agent), $5,000.** The hackathon drew 18,000+ registered participants and 570 project submissions across seven categories. [Category winners showcase](https://techcommunity.microsoft.com/blog/azuredevcommunityblog/ai-agents-hackathon-2025-%E2%80%93-category-winners-showcase/4415088)
+
+### [pokeai](https://github.com/hgenix20/pokeai)
+A symbolic, long-horizon agent that plays Pokémon FireRed end to end through the BizHawk emulator with **no game API**. Perception is deterministic, read live from emulator RAM, which makes grounding a real problem. Hierarchical planning and navigation, a fact-gated storyline dispatcher that resumes from any save state, pluggable strategies, and a live operator dashboard.
+
+Built as much as a reproducible evaluation environment as an agent: ~765 automated tests across perception, planning, battle logic, pathing, and the story dispatcher. Actively developed, full-playthrough coverage still on the roadmap.
+
+### [HCQM](https://github.com/hgenix20/hcqm)
+An open, 8-domain framework for measuring AI capability and reliability, spanning cognitive, executive, emotional/social, creative, motivational, learning, digital, and systems intelligence.
+
+**v1.0 published**, archived on Zenodo with a resolving DOI: [10.5281/zenodo.20668273](https://doi.org/10.5281/zenodo.20668273), mirrored to Software Heritage. In external review with researchers in cognitive architecture, AI evaluation, and psychometrics, including the Institute for Applied Psychometrics, whose director is named in the paper's acknowledgments. Portfolio research, not peer-reviewed.
+
+It started as a tool I built to assess and develop my daughter's capabilities holistically. It became clear the same structure could work as an architectural blueprint for AI systems that mirror how human cognition is organized.
+
+---
+
+## 🛠️ Stack
+
+**Languages** Python · TypeScript / Node.js · SQL
+
+**Agentic AI** multi-agent orchestration · LangGraph · LangChain · MCP · A2A · tool calling and tool registries · per-agent authorization · agent memory · planning loops · structured outputs · retries and failure recovery · human-in-the-loop approval gates
+
+**LLM systems** RAG · embeddings and vector search · model gateways · tiered routing and ordered fallback · token and cost telemetry · Anthropic · OpenAI-compatible APIs · Azure OpenAI
+
+**Evaluation & observability** offline and regression eval suites · evals as CI quality gates · hallucination detection and output verification · OpenTelemetry · distributed tracing · latency and cost benchmarking
+
+**Backend & data** FastAPI · REST APIs · async and concurrent Python · PostgreSQL · pgvector · Redis · MongoDB · Snowflake
+
+**Infrastructure** Docker · Kubernetes · GitHub Actions · GitLab CI/CD · Cloudflare Workers · AWS / Azure / GCP
+
+**Enterprise integration** n8n · Salesforce (Flow / Apex / Aura) · MuleSoft · Blue Prism · UiPath · Power Automate
 
 ---
 
 ## 🎓 Education
 
-- **Master of Science in Computer Science**, concentration in Artificial Intelligence — University of Nebraska at Omaha *(in progress)*
-- **PhD in Artificial Intelligence** *(planned, post-Master's)*
-- **Bachelor of Science in Business Administration**, concentration in Economics
+- **M.S. Computer Science, concentration in Artificial Intelligence** · University of Nebraska at Omaha *(in progress, expected 2027)*
+- **B.S.B.A. Economics** · University of Nebraska at Omaha · 2024
 
 ---
 
-## 🛠️ Background
-
-10 years of professional experience spanning:
-
-- **Enterprise automation & RPA** — production-grade workflow systems
-- **AI systems engineering** — bridging classical automation with modern LLM-based agent design
-- **Multi-agent architectures** — orchestration, verification, and compounding agent work
-- **API integration & orchestration** — resilient connective tissue between complex systems
-
----
-
-## 🏆 Recognition
-
-**Microsoft AI Agents Hackathon 2025 — Best JavaScript/TypeScript Agent**
-Winner out of 18,000+ registered developers and 570 project submissions across seven categories. Built **ModelProof: Sentinel AI Chat** — a dual-LLM consistency verification system that cross-checks AI outputs in real time for hallucinations, bias, and intent alignment. Treats AI responses with a sentinel guard pattern, providing users with confidence reports alongside answers.
-
-🔗 [ModelProof repository](https://github.com/hgenix20/modelproof) · [Microsoft category winners showcase](https://techcommunity.microsoft.com/blog/azuredevcommunityblog/ai-agents-hackathon-2025-%E2%80%93-category-winners-showcase/4415088)
-
----
-
-## 📚 Active Research Interests
+## 📚 What I'm thinking about
 
 - Cognitive architecture for LLM-based agents
-- Capability taxonomies grounded in human intelligence research
 - Long-horizon agent systems and memory architectures
-- Pathways toward more general and capable AI through architectural design
+- Evaluation that catches the failure you didn't predict, not the one you wrote the test for
 - The gap between descriptive capability frameworks and prescriptive engineering blueprints
+- Reliability that survives a model swap
 
 ---
 
 ## 🤝 Connect
 
-I welcome substantive engagement from researchers and practitioners working on adjacent problems — particularly cognitive architecture, capability frameworks, agent systems, and human-AI alignment.
+I welcome substantive engagement from people working on adjacent problems, particularly agent reliability, evaluation, cognitive architecture, and getting AI past enterprise governance.
 
-- 🔗 **HCQM Project:** [github.com/hgenix20/hcqm](https://github.com/hgenix20/hcqm)
-- 🆔 **ORCID:** [0009-0002-8350-3641](https://orcid.org/0009-0002-8350-3641)
+- 📧 **Email:** kameron.m.green@outlook.com
 - 💼 **LinkedIn:** [linkedin.com/in/kameronmgreen](https://www.linkedin.com/in/kameronmgreen/)
 - 𝕏 **X:** [@KameronMGreen](https://x.com/KameronMGreen)
-- 📧 **Academic email:** kgreen@unomaha.edu
+- 🆔 **ORCID:** [0009-0002-8350-3641](https://orcid.org/0009-0002-8350-3641)
+- 🎓 **Academic:** kgreen@unomaha.edu
 
 ---
 
-*Building in public. Researching how intelligence actually works — in humans, and in the systems we design to think.*
+*Building in public.*
