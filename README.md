@@ -33,7 +33,7 @@ A dual-LLM output verifier. A verifier model adjudicates a primary model's outpu
 ### [pokeai](https://github.com/hgenix20/pokeai)
 A symbolic, long-horizon agent that plays Pokémon FireRed end to end through the BizHawk emulator with **no game API**. Perception is deterministic, read live from emulator RAM, which makes grounding a real problem. Hierarchical planning and navigation, a fact-gated storyline dispatcher that resumes from any save state, pluggable strategies, and a live operator dashboard.
 
-Built as much as a reproducible evaluation environment as an agent: ~765 automated tests across perception, planning, battle logic, pathing, and the story dispatcher. Actively developed, full-playthrough coverage still on the roadmap.
+Built as much as a reproducible evaluation environment as an agent: 439 automated tests across perception, planning, battle logic, pathing, and the story dispatcher. Actively developed, full-playthrough coverage still on the roadmap.
 
 ### [HCQM](https://github.com/hgenix20/hcqm)
 An open, 8-domain framework for measuring AI capability and reliability, spanning cognitive, executive, emotional/social, creative, motivational, learning, digital, and systems intelligence.
