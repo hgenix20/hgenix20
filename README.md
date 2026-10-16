@@ -4,7 +4,7 @@ AI engineer. I build agentic systems that hold up in production: orchestration, 
 
 Ten years shipping automation and AI into regulated enterprise operations. Right now I build production multi-agent LLM systems for enterprise sales operations at **Indeed**. Before that, a decade automating regulated insurance operations, where a sloppy data boundary turns into a compliance finding.
 
-Everything below is public, runnable, and measured.
+Everything below is public, runnable, and measured, except one system marked private.
 
 ---
 
@@ -42,6 +42,13 @@ An open, 8-domain framework for measuring AI capability and reliability, spannin
 
 It started as a tool I built to assess and develop my daughter's capabilities holistically. It became clear the same structure could work as an architectural blueprint for AI systems that mirror how human cognition is organized.
 
+### Genix Mind *(private)*
+A persistent autonomous agent system on a single Linux host, Python and TypeScript. Sole builder and operator since September 2026. The repo is private while the architecture is under validation; the operations layer is demoable on request.
+
+- Built and operate a persistent autonomous agent on a single host: deterministic context compaction at a measured 300k-token bound, OOM self-recovery, and a custom monitoring hub with drain-and-resume restarts accepted live through a real reboot.
+- Gated self-modification stage: worktree-proved merges, metric review after 12 hours, automatic revert, hard bounds in code, switch off by default.
+- Agent coordination UI on Cloudflare Workers (Durable Objects, Access-gated) with task claims and token estimates vs actuals, public at [agent-room](https://github.com/hgenix20/agent-room); ~1,300 tests across the system.
+
 ---
 
 ## 🛠️ Stack
@@ -56,7 +63,7 @@ It started as a tool I built to assess and develop my daughter's capabilities ho
 
 **Backend & data** FastAPI · REST APIs · async and concurrent Python · PostgreSQL · pgvector · Redis · MongoDB · Snowflake
 
-**Infrastructure** Docker · Kubernetes · GitHub Actions · GitLab CI/CD · Cloudflare Workers · AWS / Azure / GCP
+**Infrastructure** Docker · Kubernetes · systemd · GitHub Actions · GitLab CI/CD · Cloudflare Workers · Durable Objects · AWS / Azure / GCP
 
 **Enterprise integration** n8n · Salesforce (Flow / Apex / Aura) · MuleSoft · Blue Prism · UiPath · Power Automate
 
