@@ -22,6 +22,16 @@ A reference implementation of a production agentic stack, with the architectural
 
 Benchmarks and method notes are published in [`docs/benchmarks.md`](https://github.com/hgenix20/enterprise-agent-platform/blob/main/docs/benchmarks.md).
 
+### [AI Eval Platform](https://github.com/hgenix20/ai-eval-platform)
+An evaluation and reliability platform on an Inspect AI substrate, with a regression gate in CI. The agent under test is the Enterprise Agent Platform above, at a pinned commit, so the offline suites reproduce from a clone.
+
+- **Regression gate in CI**: 17 metric rows across accuracy, cost p50, latency p95, attack success and recovery rate. Fails the build on a miss, comments the gate table on every PR, re-measures baselines on main. 318 tests, all offline.
+- **Reproduced IFEval** on 541 prompts on a local GPU, within 1.5 points of published scores on two models, at $0.00 API spend, with the reproducing command beside each table.
+- **Judge calibration with teeth**: three hallucination judges measured against 120 human labels. All fell under a kappa 0.70 floor, so the platform's rule is that an uncalibrated judge can report but never block. Recorded as an ADR.
+- 81-entry benchmark catalog and five home-built offline suites: trajectory, faults, memory, injection, groundedness.
+
+Measured results, each table preceded by the command that produced it, are in [`docs/results.md`](https://github.com/hgenix20/ai-eval-platform/blob/main/docs/results.md).
+
 ### [SignalNodus](https://github.com/hgenix20/signalnodus) · [signalnodus.ai](https://signalnodus.ai)
 A live SEC-filing intelligence API with a **public evaluation suite**: 88 published test cases with accuracy reporting, a usage audit log, and per-request receipts. You shouldn't have to trust a system you can't inspect. Sole builder and operator.
 
@@ -33,7 +43,7 @@ A multi-model verification agent. Two LLMs answer each prompt in parallel and th
 ### [pokeai](https://github.com/hgenix20/pokeai)
 A symbolic, long-horizon agent that plays Pokémon FireRed end to end through the BizHawk emulator with **no game API**. Perception is deterministic, read live from emulator RAM, which makes grounding a real problem. Hierarchical planning and navigation, a fact-gated storyline dispatcher that resumes from any save state, pluggable strategies, and a live operator dashboard.
 
-Built as much as a reproducible evaluation environment as an agent: 445 automated tests across perception, planning, battle logic, pathing, and the story dispatcher. Actively developed, full-playthrough coverage still on the roadmap.
+Built as much as a reproducible evaluation environment as an agent: 445 automated tests across perception, planning, battle logic, pathing, and the story dispatcher, run in CI on Python 3.10 through 3.12. Actively developed, full-playthrough coverage still on the roadmap.
 
 ### [HCQM](https://github.com/hgenix20/hcqm)
 An open, 8-domain framework for measuring AI capability and reliability, spanning cognitive, executive, emotional/social, creative, motivational, learning, digital, and systems intelligence.
