@@ -26,7 +26,7 @@ Benchmarks and method notes are published in [`docs/benchmarks.md`](https://gith
 A live SEC-filing intelligence API with a **public evaluation suite**: 88 published test cases with accuracy reporting, a usage audit log, and per-request receipts. You shouldn't have to trust a system you can't inspect. Sole builder and operator.
 
 ### [ModelProof](https://github.com/hgenix20/modelproof)
-A dual-LLM output verifier. A verifier model adjudicates a primary model's outputs for hallucination, bias, and intent alignment before they reach the user, and the user gets a confidence report alongside the answer.
+A multi-model verification agent. Two LLMs answer each prompt in parallel and the agent compares their replies, while a separate auditor model scores the response for hallucination, bias, toxicity, and intent alignment. The audit runs after the answer is shown, and its scores appear in a panel beside the chat.
 
 **Microsoft AI Agents Hackathon 2025, category winner (Best JavaScript/TypeScript Agent), $5,000.** The hackathon drew 18,000+ registered participants and 570 project submissions across seven categories. [Category winners showcase](https://techcommunity.microsoft.com/blog/azuredevcommunityblog/ai-agents-hackathon-2025-%E2%80%93-category-winners-showcase/4415088)
 
