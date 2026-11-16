@@ -1,111 +1,45 @@
 # Kameron M. Green
 
-AI engineer. I build agentic systems that hold up in production: orchestration, evaluation, observability, and the guardrails that let an agent touch a system of record.
+**Staff Solution AI Architect at Indeed · AI Product Engineer**
 
-Ten years shipping automation and AI into regulated enterprise operations. Right now I build production multi-agent LLM systems for enterprise sales operations at **Indeed**. Before that, a decade automating regulated insurance operations, where a sloppy data boundary turns into a compliance finding.
+I design and build production AI systems end to end, and I ship them in public. At Indeed I build multi-agent LLM systems; opportunities they created have closed won by the hundreds, for tens of millions of dollars, since launch in early 2026. Next I'm aiming AI at harder problems, starting with quantum circuit compilation for fusion energy.
 
-Everything below is public, runnable, and measured, except one system marked private.
-
----
-
-## 🧱 What I build
-
-### [Enterprise Agent Platform](https://github.com/hgenix20/enterprise-agent-platform)
-A reference implementation of a production agentic stack, with the architectural decisions written down as ADRs.
-
-- **Model gateway** with provider abstraction, tiered routing by task class, and ordered fallback chains. Measured 100% recovery at **+0.02 ms** added latency with the primary provider failing every call.
-- **Tool registry** with MCP-style specs enforcing per-agent authorization. An agent can only call what its grant allows, checked before the tool resolves.
-- **Human approval gates** that park a run and resume it durably, exactly-once across processes via atomic compare-and-set on Postgres.
-- **Agent memory on pgvector**, per-agent scoping enforced in the query. 1.05 ms ranked search at k=5.
-- LangGraph orchestration, OpenTelemetry spans on every model call and tool execution, a 6-case eval suite gating CI, 45 tests, 6 ADRs.
-- **Kubernetes deploy verified** on k3d: 100/100 runs at 5.4 ms mean end to end with durable persistence, every row confirmed in the cluster database.
-
-Benchmarks and method notes are published in [`docs/benchmarks.md`](https://github.com/hgenix20/enterprise-agent-platform/blob/main/docs/benchmarks.md).
-
-### [AI Eval Platform](https://github.com/hgenix20/ai-eval-platform)
-An evaluation and reliability platform on an Inspect AI substrate, with a regression gate in CI. The agent under test is the Enterprise Agent Platform above, at a pinned commit, so the offline suites reproduce from a clone.
-
-- **Regression gate in CI**: 17 metric rows across accuracy, cost p50, latency p95, attack success and recovery rate. Fails the build on a miss, comments the gate table on every PR, re-measures baselines on main. 318 tests, all offline.
-- **Reproduced IFEval** on 541 prompts on a local GPU, within 1.5 points of published scores on two models, at $0.00 API spend, with the reproducing command beside each table.
-- **Judge calibration with teeth**: three hallucination judges measured against 120 human labels. All fell under a kappa 0.70 floor, so the platform's rule is that an uncalibrated judge can report but never block. Recorded as an ADR.
-- 81-entry benchmark catalog and five home-built offline suites: trajectory, faults, memory, injection, groundedness.
-
-Measured results, each table preceded by the command that produced it, are in [`docs/results.md`](https://github.com/hgenix20/ai-eval-platform/blob/main/docs/results.md).
-
-### [SignalNodus](https://github.com/hgenix20/signalnodus) · [signalnodus.ai](https://signalnodus.ai)
-A live SEC-filing intelligence API with a **public evaluation suite**: 88 published test cases with accuracy reporting, a usage audit log, and per-request receipts. You shouldn't have to trust a system you can't inspect. Sole builder and operator.
+## Products and systems
 
 ### [ModelProof](https://github.com/hgenix20/modelproof)
-A multi-model verification agent. Two LLMs answer each prompt in parallel and the agent compares their replies, while a separate auditor model scores the response for hallucination, bias, toxicity, and intent alignment. The audit runs after the answer is shown, and its scores appear in a panel beside the chat.
+Two models answer each prompt in parallel, and a third scores every reply for hallucination, bias, toxicity and intent match in a panel beside the chat. Built solo.
+**Microsoft AI Agents Hackathon 2025, category winner (Best JavaScript/TypeScript Agent), $5,000**, from 570 submissions and 18,000+ registered participants. [Winners showcase](https://techcommunity.microsoft.com/blog/azuredevcommunityblog/ai-agents-hackathon-2025-%E2%80%93-category-winners-showcase/4415088)
 
-**Microsoft AI Agents Hackathon 2025, category winner (Best JavaScript/TypeScript Agent), $5,000.** The hackathon drew 18,000+ registered participants and 570 project submissions across seven categories. [Category winners showcase](https://techcommunity.microsoft.com/blog/azuredevcommunityblog/ai-agents-hackathon-2025-%E2%80%93-category-winners-showcase/4415088)
+### [Agent Room](https://github.com/hgenix20/agent-room) · [live](https://room.kamerongreen.dev)
+A shared channel and task board where people and AI agents coordinate work, with token estimates against actuals for every task. Cloudflare Workers, Durable Objects, WebSockets and Cloudflare Access. 140 tests; deploys on every push.
 
-### [pokeai](https://github.com/hgenix20/pokeai)
-A symbolic, long-horizon agent that plays Pokémon FireRed end to end through the BizHawk emulator with **no game API**. Perception is deterministic, read live from emulator RAM, which makes grounding a real problem. Hierarchical planning and navigation, a fact-gated storyline dispatcher that resumes from any save state, pluggable strategies, and a live operator dashboard.
+### [SignalNodus](https://github.com/hgenix20/signalnodus)
+A paid SEC-filing API built for AI agents, which I built and ran in 2026. It had 31 tools over REST and MCP, was listed in the official MCP registry, and billed per call through Stripe and x402. Every answer carried its accession number, filing date and parser version, so an amended filing couldn't change a pinned result, and its accuracy was published on an 88-case public test set. Retired in September 2026.
 
-Built as much as a reproducible evaluation environment as an agent: 445 automated tests across perception, planning, battle logic, pathing, and the story dispatcher, run in CI on Python 3.10 through 3.12. Actively developed, full-playthrough coverage still on the roadmap.
-
-### [HCQM](https://github.com/hgenix20/hcqm)
-An open, 8-domain framework for measuring AI capability and reliability, spanning cognitive, executive, emotional/social, creative, motivational, learning, digital, and systems intelligence.
-
-**v1.0 published**, archived on Zenodo with a resolving DOI: [10.5281/zenodo.20668273](https://doi.org/10.5281/zenodo.20668273), mirrored to Software Heritage. In external review with researchers in cognitive architecture, AI evaluation, and psychometrics, including the Institute for Applied Psychometrics, whose director is named in the paper's acknowledgments. Portfolio research.
-
-It started as a tool I built to assess and develop my daughter's capabilities holistically. It became clear the same structure could work as an architectural blueprint for AI systems that mirror how human cognition is organized.
+### [Enterprise Agent Platform](https://github.com/hgenix20/enterprise-agent-platform)
+The core of a production agent stack, with every major decision written down as an ADR. A model gateway routes by task tier with ordered fallback. A tool registry checks each agent's permissions before a tool resolves. Human approval steps pause a run and resume it exactly once across processes. Memory runs on pgvector, and tracing on OpenTelemetry. Deployed on Kubernetes (k3d), where the rollout exposed a startup race that I fixed. 45 tests, [benchmarks with method notes](https://github.com/hgenix20/enterprise-agent-platform/blob/main/docs/benchmarks.md).
 
 ### Genix Mind *(private)*
-A persistent autonomous agent system on a single Linux host, Python and TypeScript. Sole builder and operator since September 2026. The repo is private while the architecture is under validation; the operations layer is demoable on request.
+A persistent autonomous agent that I run on its own Linux server. I measured its context growing from 47k to 818k tokens per response and built deterministic compaction at a 300k bound. I root-caused an out-of-memory outage and fixed it at three levels, and I built a monitoring hub whose restart command drains work, reboots the host and resumes every agent. It's proven through a real reboot. About 1,300 tests. Operations layer demoable on request.
 
-- Built and operate a persistent autonomous agent on a single host: deterministic context compaction at a measured 300k-token bound, OOM self-recovery, and a custom monitoring hub with drain-and-resume restarts accepted live through a real reboot.
-- Gated self-modification stage: worktree-proved merges, metric review after 12 hours, automatic revert, hard bounds in code, switch off by default.
-- Agent coordination UI on Cloudflare Workers (Durable Objects, Access-gated) with task claims and token estimates vs actuals, public at [agent-room](https://github.com/hgenix20/agent-room); ~1,300 tests across the system.
+### Agents for games and puzzles
+- [arc3-mind-agent](https://github.com/hgenix20/arc3-mind-agent): offline agent for the ARC-AGI-3 Kaggle competition on a locally served model; paper-track writeup submitted November 2026. A second design, [arc3-curiosity-agent](https://github.com/hgenix20/arc3-curiosity-agent), is published with its results and failure analysis.
+- [pokeai](https://github.com/hgenix20/pokeai): plays Pokémon FireRed with no game API by reading and decrypting emulator memory, and resumes from any save state. 445 tests, CI on Python 3.10 to 3.12.
 
----
+Also: [ai-eval-platform](https://github.com/hgenix20/ai-eval-platform), a test harness with a CI gate and published measurements (318 tests).
 
-## 🛠️ Stack
+## Now
+- Quantum circuit compilation for the Google Quantum AI challenge on Kaggle: a fusion-energy subroutine, scored on qubits and gate counts. Verified baseline reproduced; optimizing.
+- M.S. in Computer Science (AI), University of Nebraska at Omaha, expected 2027.
 
-**Languages** Python · TypeScript / Node.js · SQL
+## Research
+[HCQM v1.0](https://github.com/hgenix20/hcqm), an open capability framework across 8 domains. Archived on Zenodo: [10.5281/zenodo.20668273](https://doi.org/10.5281/zenodo.20668273).
 
-**Agentic AI** multi-agent orchestration · LangGraph · LangChain · MCP · A2A · tool calling and tool registries · per-agent authorization · agent memory · planning loops · structured outputs · retries and failure recovery · human-in-the-loop approval gates
+## Stack
+**Languages:** Python · TypeScript · SQL
+**AI:** Anthropic and OpenAI-compatible APIs · Azure OpenAI · LangGraph · MCP · multi-agent orchestration · context engineering · RAG
+**Backend and data:** FastAPI · PostgreSQL · pgvector · Redis · MongoDB · Cloudflare D1
+**Infrastructure:** Cloudflare Workers and Durable Objects · Docker · Kubernetes · Linux and systemd · GitHub Actions · OpenTelemetry
 
-**LLM systems** RAG · embeddings and vector search · model gateways · tiered routing and ordered fallback · token and cost telemetry · Anthropic · OpenAI-compatible APIs · Azure OpenAI
-
-**Evaluation & observability** offline and regression eval suites · evals as CI quality gates · hallucination detection and output verification · OpenTelemetry · distributed tracing · latency and cost benchmarking
-
-**Backend & data** FastAPI · REST APIs · async and concurrent Python · PostgreSQL · pgvector · Redis · MongoDB · Snowflake
-
-**Infrastructure** Docker · Kubernetes · systemd · GitHub Actions · GitLab CI/CD · Cloudflare Workers · Durable Objects · AWS / Azure / GCP
-
-**Enterprise integration** n8n · Salesforce (Flow / Apex / Aura) · MuleSoft · Blue Prism · UiPath · Power Automate
-
----
-
-## 🎓 Education
-
-- **M.S. Computer Science, concentration in Artificial Intelligence** · University of Nebraska at Omaha *(in progress, expected 2027)*
-- **B.S.B.A. Economics** · University of Nebraska at Omaha · 2024
-
----
-
-## 📚 What I'm thinking about
-
-- Cognitive architecture for LLM-based agents
-- Long-horizon agent systems and memory architectures
-- Evaluation that catches the failure you didn't predict, not the one you wrote the test for
-- The gap between descriptive capability frameworks and prescriptive engineering blueprints
-- Reliability that survives a model swap
-
----
-
-## 🤝 Connect
-
-I welcome substantive engagement from people working on adjacent problems, particularly agent reliability, evaluation, cognitive architecture, and getting AI past enterprise governance.
-
-- 📧 **Email:** kameron.m.green@outlook.com
-- 💼 **LinkedIn:** [linkedin.com/in/kameronmgreen](https://www.linkedin.com/in/kameronmgreen/)
-- 𝕏 **X:** [@KameronMGreen](https://x.com/KameronMGreen)
-- 🆔 **ORCID:** [0009-0002-8350-3641](https://orcid.org/0009-0002-8350-3641)
-- 🎓 **Academic:** kgreen@unomaha.edu
-
----
-
-*Building in public.*
+## Contact
+[LinkedIn](https://www.linkedin.com/in/kameronmgreen/) · [kamerongreen.dev](https://kamerongreen.dev) · [X @KameronMGreen](https://x.com/KameronMGreen) · [ORCID](https://orcid.org/0009-0002-8350-3641) · kameron.m.green@outlook.com
