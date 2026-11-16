@@ -1,8 +1,8 @@
 # Kameron M. Green
 
-**Staff Solution AI Architect at Indeed · AI Product Engineer**
+**AI Product Engineer**
 
-I design and build production AI systems end to end, and I ship them in public. At Indeed I build multi-agent LLM systems; opportunities they created have closed won by the hundreds, for tens of millions of dollars, since launch in early 2026. Next I'm aiming AI at harder problems, starting with quantum circuit compilation for fusion energy.
+I design and build production AI systems end to end, and I ship them in public. I build multi-agent LLM systems; opportunities they created have closed won by the hundreds, for tens of millions of dollars, since launch in early 2026. Next I'm aiming AI at harder problems, starting with quantum circuit compilation for fusion energy.
 
 ## Products and systems
 
